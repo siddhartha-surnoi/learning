@@ -1,0 +1,16 @@
+Python bulid ci-cd jenkins pipeline
+ 
+pipeline {
+    agent any 
+    stages{
+        stage('download git code for url') {
+            steps {
+git branch: 'main', credentialsId: 'git-acc', url: 'https://github.com/siddhartha-surnoi/python-test.git'
+    }
+        }
+        stage('build python') { steps {
+            sh 'python3 ops.py'
+                                      }
+                                }
+        }
+    }
